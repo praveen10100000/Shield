@@ -32,7 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .antMatchers("/api/shield/registration-second", "/api/shield/login").permitAll().anyRequest().authenticated()
+                .antMatchers("/api/shield/registration-second", "/api/shield/login", "/api/shield/forgetPassword", "/api/shield/resetPassword",
+                        "/api/shield/save-new-password").permitAll().anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

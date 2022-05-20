@@ -41,6 +41,22 @@ public class Company {
     private String password;
     private String resetPasswordToken ;
 
+    public void updateCompanyDetails(Company company){
+        companyName = company.getCompanyName() !=null ? company.getCompanyName() : companyName;
+        country = company.getCountry() !=null ? company.getCountry() : country ;
+        state = company.getState() !=null ? company.getState() : state;
+        mcNumber = company.getMcNumber() !=null ? company.getMcNumber(): mcNumber;
+        dotNumber = company.getDotNumber() !=null ? company.getDotNumber() : dotNumber;
+        postalCode = company.getPostalCode() !=null ? company.getPostalCode() : postalCode;
+        address = company.getAddress() !=null ? company.getAddress() : address;
+        city = company.getCity() !=null ? company.getCity() : city;
+        contactPerson = company.getContactPerson() !=null ? company.getContactPerson() : contactPerson;
+        phoneNumber = company.getPhoneNumber() !=null ? company.getPhoneNumber() : phoneNumber;
+        email = company.getEmail() !=null ? company.getEmail() : email;
+        password = company.getPassword() !=null ? company.getPassword() : password;
+        resetPasswordToken = company.getResetPasswordToken() !=null ? company.getResetPasswordToken() : resetPasswordToken;
+    }
+
 
     public <E> Company(String name, String password, ArrayList<E> es) {
     }

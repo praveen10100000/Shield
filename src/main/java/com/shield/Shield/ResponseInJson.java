@@ -18,4 +18,7 @@ public class ResponseInJson<T> {
      private String jwt;
      @JsonInclude( value = JsonInclude.Include.NON_NULL)
      private T data;
+
+    public ResponseInJson(String message) {
+    }
 }
