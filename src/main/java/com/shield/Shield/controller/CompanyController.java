@@ -4,6 +4,7 @@ import com.shield.Shield.ResponseInJson;
 import com.shield.Shield.dto.OtpVerification;
 import com.shield.Shield.dto.PasswordChange;
 import com.shield.Shield.entity.Company;
+import com.shield.Shield.entity.Staff;
 import com.shield.Shield.otp.OtpDetails;
 import com.shield.Shield.repository.CompanyRepo;
 import com.shield.Shield.service.CompanyService;
@@ -182,12 +183,20 @@ public class CompanyController {
              return ResponseEntity.ok(responseInJson);
          }
                 catch (Exception e) {
-             System.out.println(e.getLocalizedMessage());
+                System.out.println(e.getLocalizedMessage());
                 message = "Fail to uploads file";
                 return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseInJson(message));
             }
 
     }
+
+    @PostMapping("/add-office-location")
+    public ResponseEntity<?> addOfficeLocation(@RequestBody Staff staff)
+    {
+
+        return ResponseEntity.ok("");
+    }
+
 
 
 }

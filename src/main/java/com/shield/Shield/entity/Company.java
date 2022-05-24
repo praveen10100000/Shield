@@ -7,11 +7,9 @@ import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -28,7 +26,7 @@ public class Company {
     @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID id ;
     private String companyName ;
-    private String mcNumber;
+    private String mcNumber ;
     private String dotNumber ;
     private String country ;
     private String state ;
@@ -37,11 +35,15 @@ public class Company {
     private String city ;
     private String contactPerson ;
     private String phoneNumber ;
-    private String email;
-    private String password;
+    private String email ;
+    private String password ;
     private String resetPasswordToken ;
 
-    public void updateCompanyDetails(Company company){
+    @OneToMany(mappedBy = "company" , cascade = CascadeType.ALL)
+    private List<Staff> staff = new ArrayList<>();
+
+    public void updateCompanyDetails(Company company)
+    {
         companyName = company.getCompanyName() !=null ? company.getCompanyName() : companyName;
         country = company.getCountry() !=null ? company.getCountry() : country ;
         state = company.getState() !=null ? company.getState() : state;
